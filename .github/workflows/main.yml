@@ -7,9 +7,8 @@ on:
   pull_request:
     branches:
       - master
-      
-# Allows you to run this workflow manually from the Actions tab
-workflow_dispatch:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   windows:
@@ -32,13 +31,11 @@ jobs:
           which mxmlc
           which compc
           which adt
-  windows-air-version:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: joshtynjala/setup-adobe-air-action@master
-      - name: Win SWF
-        with:
-          air-version: "30.0"
-        run: |
-          mxmlc -output bin/DemoAppGitHubActions.swf src/DemoAppGitHubActions.mxml
+  #windows-air-version:
+  #  runs-on: windows-latest
+  # steps:
+  #   - uses: actions/checkout@v2
+  #   - uses: joshtynjala/setup-adobe-air-action@master
+  #   - name: Win SWF
+  #     run: |
+  #       mxmlc -output bin/DemoAppGitHubActions.swf src/DemoAppGitHubActions.mxml
