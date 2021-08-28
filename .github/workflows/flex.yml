@@ -1,4 +1,4 @@
-name: Action
+name: Flex Action
 
 on:
   push:
@@ -13,8 +13,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: joshtynjala/setup-adobe-air-action@master
-      - name: Windows Captive
+      - uses: ./
+      - name: Check executables
         run: |
           Get-Command mxmlc
           Get-Command compc
@@ -23,8 +23,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: joshtynjala/setup-adobe-air-action@master
-      - name: Mac Captive
+      - uses: ./
+      - name: Check executables
         run: |
           which mxmlc
           which compc
@@ -33,9 +33,23 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: joshtynjala/setup-adobe-air-action@master
-      - name: Win SWF
+      - uses: ./
         with:
           air-version: "30.0"
+      - name: Check executables
         run: |
-          mxmlc -output bin/DemoAppGitHubActions.swf src/DemoAppGitHubActions.mxml
+          Get-Command mxmlc
+          Get-Command compc
+          Get-Command adt
+  macos-air-version:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          flex-version: "4.16.1"
+      - name: Check executables
+        run: |
+          which mxmlc
+          which compc
+          which adt
