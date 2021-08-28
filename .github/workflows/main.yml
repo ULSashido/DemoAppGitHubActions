@@ -23,6 +23,13 @@ jobs:
           Get-Command mxmlc
           Get-Command compc
           Get-Command adt
+#      - name: Upload asset to release
+#        uses: gacts/upload-to-release@master
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          file: './hi' # No Idea on location of Project on VM?
+#          type: 'application/octet-stream'
   macos:
     runs-on: macos-latest
     steps:
