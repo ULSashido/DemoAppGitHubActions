@@ -42,4 +42,5 @@ jobs:
   #   - uses: joshtynjala/setup-adobe-air-action@master
   #   - name: Win SWF
   #     run: |
+  #       Line below throws an !!error!! when running Action
   #       mxmlc -output bin/DemoAppGitHubActions.swf src/DemoAppGitHubActions.mxml
