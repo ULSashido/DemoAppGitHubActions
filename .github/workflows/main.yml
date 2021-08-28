@@ -37,6 +37,5 @@ jobs:
       - name: Win SWF
         with:
           air-version: "30.0"
-      - name: Compile SWF
         run: |
           mxmlc -output bin/DemoAppGitHubActions.swf src/DemoAppGitHubActions.mxml
