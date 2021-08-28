@@ -37,7 +37,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: joshtynjala/setup-adobe-air-action@master
       - name: Win SWF
-      - with:
-          air-version: "30.0"
         run: |
           mxmlc -output bin/DemoAppGitHubActions.swf src/DemoAppGitHubActions.mxml
