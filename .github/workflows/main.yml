@@ -1,4 +1,4 @@
-name: Compile SWF
+name: Action
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: joshtynjala/setup-adobe-air-action@master
-      - name: Compile SWF
+      - name: Windows Captive
         run: |
           Get-Command mxmlc
           Get-Command compc
@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: joshtynjala/setup-adobe-air-action@master
-      - name: Compile SWF
+      - name: Mac Captive
         run: |
           which mxmlc
           which compc
@@ -34,6 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: joshtynjala/setup-adobe-air-action@master
+      - name: Win SWF
         with:
           air-version: "30.0"
       - name: Compile SWF
