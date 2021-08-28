@@ -1,4 +1,4 @@
-name: Package
+name: Compile SWF
 
 on:
   push:
@@ -13,8 +13,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
-      - name: Check executables
+      - uses: joshtynjala/setup-adobe-air-action@master
+      - name: Compile SWF
         run: |
           Get-Command mxmlc
           Get-Command compc
@@ -23,8 +23,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
-      - name: Check executables
+      - uses: joshtynjala/setup-adobe-air-action@master
+      - name: Compile SWF
         run: |
           which mxmlc
           which compc
@@ -33,23 +33,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - uses: joshtynjala/setup-adobe-air-action@master
         with:
           air-version: "30.0"
-      - name: Check executables
+      - name: Compile SWF
         run: |
-          Get-Command mxmlc
-          Get-Command compc
-          Get-Command adt
-  macos-air-version:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./
-        with:
-          air-version: "32.0"
-      - name: Check executables
-        run: |
-          which mxmlc
-          which compc
-          which adt
+          mxmlc -output bin/DemoAppGitHubActions.swf src/DemoAppGitHubActions.mxml
