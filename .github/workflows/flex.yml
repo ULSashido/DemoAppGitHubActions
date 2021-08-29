@@ -7,13 +7,15 @@ on:
   pull_request:
     branches:
       - master
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   windows:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - uses: joshtynjala/setup-apache-flex-action@master
       - name: Check executables
         run: |
           Get-Command mxmlc
@@ -23,7 +25,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - uses: joshtynjala/setup-apache-flex-action@master
       - name: Check executables
         run: |
           which mxmlc
@@ -33,9 +35,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - uses: joshtynjala/setup-apache-flex-action@master
         with:
-          air-version: "30.0"
+          air-version: "4.16.1"
       - name: Check executables
         run: |
           Get-Command mxmlc
