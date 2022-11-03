@@ -14,16 +14,16 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: joshtynjala/setup-adobe-air-action@master
         with:
-          flex-version: "4.16.1"
+          air-version: "33.1"
           accept-license: true
       - name: Windows Captive
         run: |
           Get-Command mxmlc
           Get-Command compc
-          Get-Command adt
+          Get-Command adt -output bin/Test.exe src/DemoAppGitHubActions.mxml
 #      - name: Upload asset to release
 #        uses: gacts/upload-to-release@master
 #        env:
