@@ -25,7 +25,7 @@ jobs:
           Get-Command compc
           Get-Command adt
           adt -version
-          adt -package /bin/test.exe /src/DemoAppGitHubActions.mxml
+          adt -package -target bundle DemoAppGitHubActions src/DemoAppGitHubActions-app.xml images
 #      - name: Upload asset to release
 #        uses: gacts/upload-to-release@master
 #        env:
