@@ -23,7 +23,9 @@ jobs:
         run: |
           Get-Command mxmlc
           Get-Command compc
-          Get-Command adt -output bin/Test.exe src/DemoAppGitHubActions.mxml
+          Get-Command adt
+          adt -version
+          adt -package /bin/test.exe /src/DemoAppGitHubActions.mxml
 #      - name: Upload asset to release
 #        uses: gacts/upload-to-release@master
 #        env:
