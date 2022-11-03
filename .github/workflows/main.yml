@@ -17,7 +17,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: joshtynjala/setup-adobe-air-action@master
         with:
-          air-version: "32.0"
+          air-version: "33.1"
+          accept-license: true
       - name: Windows Captive
         run: |
           Get-Command mxmlc
@@ -36,7 +37,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: joshtynjala/setup-adobe-air-action@master
         with:
-          air-version: "32.0"
+          air-version: "33.1"
+          accept-license: true
       - name: Mac Captive
         run: |
           which mxmlc
